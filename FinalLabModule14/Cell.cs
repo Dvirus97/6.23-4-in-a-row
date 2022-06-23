@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace FinalLabModule14
 {
-    internal class Cell
+    public class Cell
     {
         //private int _row;
         //private int _col;
