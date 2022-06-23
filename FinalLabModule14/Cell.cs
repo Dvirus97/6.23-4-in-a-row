@@ -74,8 +74,6 @@ namespace FinalLabModule14
         }
 
 
-
-
         public Cell(int row, int col)
         {
             Row = row;
