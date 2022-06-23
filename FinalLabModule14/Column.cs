@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 namespace FinalLabModule14
 {
@@ -15,7 +16,7 @@ namespace FinalLabModule14
         public Cell[] Cells { get; private set; }
         public Button Btn { get; private set; }
 
-        public Column(int colNum, int height)
+        public Column(int colNum, int height, Grid grd)
         {
             ColNum = colNum;
             Height = height;
@@ -25,6 +26,7 @@ namespace FinalLabModule14
                 Cell cell = new Cell(i, colNum);
                 Grid.SetColumn(cell.Elps, colNum);
                 Grid.SetRow(cell.Elps, Height + 1 - i);
+                grd.Children.Add(cell.Elps);
                 Cells[i] = cell;
             }
 
@@ -34,11 +36,31 @@ namespace FinalLabModule14
             Btn.Tapped += Btn_Tapped;
             Grid.SetColumn(Btn, colNum);
             Grid.SetRow(Btn, 0);
+            grd.Children.Add(Btn);
+
         }
 
-        private void Btn_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void Btn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Player player = Board.ActivcePlayer;
+            Cell cell = FindFreeCell();
+            if(cell != null)
+            {
+                cell.Player = player;
+            }
+
+        }
+
+        private Cell FindFreeCell()
+        {
+            for (int i = 0; i < Height; i++)
+            {
+                if (Cells[i].Player == null)
+                {
+                    return Cells[i];
+                }
+            }
+            return null;
         }
     }
 }

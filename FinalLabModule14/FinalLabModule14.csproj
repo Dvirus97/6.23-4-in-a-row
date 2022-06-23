@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Board.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Column.cs" />
     <Compile Include="MainPage.xaml.cs">

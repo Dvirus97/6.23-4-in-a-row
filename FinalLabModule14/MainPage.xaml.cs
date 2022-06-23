@@ -22,9 +22,19 @@ namespace FinalLabModule14
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private Board brd;
         public MainPage()
         {
             this.InitializeComponent();
+            brd = new Board(mainGrid);
+            //int col = mainGrid.ColumnDefinitions.Count;
+        }
+
+        private void Start_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            startBtn.Visibility = Visibility.Collapsed;
+            mainGrid.Visibility = Visibility.Visible;
+            brd.StartGame();
         }
     }
 }
