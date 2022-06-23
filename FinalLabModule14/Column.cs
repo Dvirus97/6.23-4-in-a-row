@@ -21,6 +21,7 @@ namespace FinalLabModule14
             ColNum = colNum;
             Height = height;
             Cells = new Cell[Height];
+
             for (int i = 0; i < Height; i++)
             {
                 Cell cell = new Cell(i, colNum);
@@ -34,6 +35,7 @@ namespace FinalLabModule14
             Btn.HorizontalAlignment = HorizontalAlignment.Stretch;
             Btn.VerticalAlignment = VerticalAlignment.Stretch;
             Btn.Tapped += Btn_Tapped;
+            Btn.Content = "X";
             Grid.SetColumn(Btn, colNum);
             Grid.SetRow(Btn, 0);
             grd.Children.Add(Btn);
@@ -42,11 +44,12 @@ namespace FinalLabModule14
 
         private void Btn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Player player = Board.ActivcePlayer;
+            Player ACT_Player = Board.ActivcePlayer;
             Cell cell = FindFreeCell();
             if(cell != null)
             {
-                cell.Player = player;
+                cell.Player = ACT_Player;
+                            
             }
 
         }

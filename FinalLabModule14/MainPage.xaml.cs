@@ -32,9 +32,23 @@ namespace FinalLabModule14
 
         private void Start_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            startBtn.Visibility = Visibility.Collapsed;
+            startGrid.Visibility = Visibility.Collapsed;
             mainGrid.Visibility = Visibility.Visible;
             brd.StartGame();
+            
+        }
+
+        private void colorP1Cbx_DropDownClosed(object sender, object e)
+        {
+            ComboBoxItem cbi = (ComboBoxItem)colorP1Cbx.SelectedItem;
+            colorP1Cbx.Background = cbi.Background;
+            brd.Player1.Color = colorP1Cbx.Background;
+        }
+        private void colorP2Cbx_DropDownClosed(object sender, object e)
+        {
+            ComboBoxItem cbi = (ComboBoxItem)colorP2Cbx.SelectedItem;
+            colorP2Cbx.Background = cbi.Background;
+            brd.Player2.Color = colorP2Cbx.Background;
         }
     }
 }

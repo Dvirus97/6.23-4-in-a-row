@@ -62,17 +62,17 @@ namespace FinalLabModule14
         public int Row { get; private set; }
         public int Col { get; private set; }
         public Ellipse Elps { get; private set; }
+        
         private Player _player;
-
         public Player Player
         {
             get { return _player; }
-            set { 
+            set
+            {
                 _player = value;
                 Elps.Fill = _player.Color;
             }
         }
-
 
         public Cell(int row, int col)
         {

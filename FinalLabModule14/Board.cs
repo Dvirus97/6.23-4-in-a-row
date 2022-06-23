@@ -31,7 +31,7 @@ namespace FinalLabModule14
             
             }
             Player1 = new Player();
-            Player1.Color = new SolidColorBrush(Colors.Red);
+            //Player1.Color = new SolidColorBrush(Colors.);
             Player1.Name = "Red Player";
             Player2 = new Player();
             Player2.Color = new SolidColorBrush(Colors.Blue);

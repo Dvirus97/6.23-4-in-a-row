@@ -32,7 +32,44 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
+        <Grid x:Name="startGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Button x:Name="startBtn" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="10" FontSize="30" Tapped="Start_Tapped">Start Game</Button>
+            <ComboBox x:Name="colorP1Cbx" Grid.Row="1" Grid.Column="0" FontSize="30" 
+                      DropDownClosed="colorP1Cbx_DropDownClosed">
+                <ComboBoxItem Background="Red">Red</ComboBoxItem>
+                <ComboBoxItem Background="Yellow">Yellow</ComboBoxItem>
+                <ComboBoxItem Background="Blue">Blue</ComboBoxItem>
+                <ComboBoxItem Background="Green">Green</ComboBoxItem>
+                <ComboBoxItem Background="Cyan">Cyan</ComboBoxItem>
+                <ComboBoxItem Background="Magenta">Magenta</ComboBoxItem>
+                <ComboBoxItem Background="Gold">Gold</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="colorP2Cbx" Grid.Row="1" Grid.Column="1" FontSize="30" 
+                      DropDownClosed="colorP2Cbx_DropDownClosed">
+                <ComboBoxItem Background="Red">Red</ComboBoxItem>
+                <ComboBoxItem Background="Yellow">Yellow</ComboBoxItem>
+                <ComboBoxItem Background="Blue">Blue</ComboBoxItem>
+                <ComboBoxItem Background="Green">Green</ComboBoxItem>
+                <ComboBoxItem Background="Cyan">Cyan</ComboBoxItem>
+                <ComboBoxItem Background="Magenta">Magenta</ComboBoxItem>
+                <ComboBoxItem Background="Gold">Gold</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Grid.Row="3" Grid.Column="3" ></TextBlock>
+
+
+        </Grid>
     </Grid>
 </Page>
