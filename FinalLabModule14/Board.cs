@@ -32,10 +32,10 @@ namespace FinalLabModule14
             }
             Player1 = new Player();
             //Player1.Color = new SolidColorBrush(Colors.);
-            Player1.Name = "Red Player";
+            //Player1.Name = "Red Player";
             Player2 = new Player();
-            Player2.Color = new SolidColorBrush(Colors.Blue);
-            Player2.Name = "Blue Player";
+            //Player2.Color = new SolidColorBrush(Colors.Blue);
+            //Player2.Name = "Blue Player";
         }
 
         private void Btn_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)

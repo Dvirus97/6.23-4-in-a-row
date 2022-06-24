@@ -27,9 +27,12 @@ namespace FinalLabModule14
                 Cell cell = new Cell(i, colNum);
                 Grid.SetColumn(cell.Elps, colNum);
                 Grid.SetRow(cell.Elps, Height + 1 - i);
+                cell.Elps.Margin = new Thickness(5);
                 grd.Children.Add(cell.Elps);
                 Cells[i] = cell;
             }
+           
+
 
             Btn = new Button();
             Btn.HorizontalAlignment = HorizontalAlignment.Stretch;
