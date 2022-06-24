@@ -34,9 +34,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Rectangle Name="selectedPlayerRct"  Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+            <!--<Rectangle Name="Player1Rct"  Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Transparent" 
                        Stroke="Yellow"/>
+            <Rectangle Name="Player2Rct"  Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Transparent" 
+                       Stroke="Yellow"/>-->
 
             <StackPanel Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15">
                 <TextBlock Name="showName1Tbl" FontSize="30"></TextBlock>
@@ -49,6 +52,7 @@
             </StackPanel>
 
             <Button x:Name="clearBtn"  Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" FontSize="30" Tapped="clearBtn_Tapped">Start New</Button>
+            <Button x:Name="returnBtn" Grid.Row="8" Grid.Column="7" Grid.ColumnSpan="2" FontSize="30" Tapped="returnBtn_Tapped">Go Back</Button>
             <TextBlock Name="winTbl" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" 
                        FontSize="30"></TextBlock>
         </Grid>

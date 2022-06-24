@@ -67,18 +67,27 @@ namespace FinalLabModule14
             }
         }
 
+        public bool ColumnFull()
+        {
+            for (int i = 0; i < Cells.Length; i++)
+            {
+                if (Cells[i].Player == null)
+                {
+                    return false;
+                }
+            }
+            Btn.IsEnabled = false;
+            return true;
+        }
         private void Btn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Cell cell = FindFreeCell();
+            Cell theCell = FindFreeCell();
             Player ACT_Player = Board.ActivcePlayer;
-            if (cell != null)
+            if (theCell != null)
             {
-                cell.Player = ACT_Player;
+                theCell.Player = ACT_Player;
             }
-            else
-            {
-                Btn.IsEnabled = false;
-            }
+
 
         }
 

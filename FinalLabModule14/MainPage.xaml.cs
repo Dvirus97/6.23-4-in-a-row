@@ -60,7 +60,7 @@ namespace FinalLabModule14
             colorP2Cbx_DropDownClosed(null, null);
             brd.Player1.Name = (nameP1Tbx.Text == "") ? $"Player 1" : nameP1Tbx.Text;
             brd.Player2.Name = (nameP2Tbx.Text == "") ? $"Player 2" : nameP2Tbx.Text;
-
+            brd.Clear();
             showName1Tbl.Text = brd.Player1.Name;
             showName2Tbl.Text = brd.Player2.Name;
         }
@@ -68,6 +68,12 @@ namespace FinalLabModule14
         private void clearBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             brd.Clear();
+        }
+
+        private void returnBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            startGrid.Visibility = Visibility.Visible;
+            mainGrid.Visibility = Visibility.Collapsed;
         }
     }
 }
