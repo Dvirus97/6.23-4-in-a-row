@@ -53,7 +53,7 @@ namespace FinalLabModule14
         private void colorP2Cbx_DropDownClosed(object sender, object e)
         {
 
-            ComboBoxItem cbi = ((ComboBoxItem)colorP1Cbx.SelectedItem == null) ? 
+            ComboBoxItem cbi = ((ComboBoxItem)colorP2Cbx.SelectedItem == null) ? 
                 RedCbi : (ComboBoxItem)colorP2Cbx.SelectedItem;
             colorP2Cbx.Background =  cbi.Background;
             brd.Player2.Color = colorP2Cbx.Background;
@@ -63,8 +63,8 @@ namespace FinalLabModule14
         {
             colorP1Cbx_DropDownClosed(null, null);
             colorP2Cbx_DropDownClosed(null, null);
-            brd.Player1.Name = (nameP1Tbx.Text == "") ? $"Player Blue" : nameP1Tbx.Text;
-            brd.Player2.Name = (nameP2Tbx.Text == "") ? $"Player Red" : nameP2Tbx.Text;
+            brd.Player1.Name = (nameP1Tbx.Text == "") ? $"Player 1" : nameP1Tbx.Text;
+            brd.Player2.Name = (nameP2Tbx.Text == "") ? $"Player 2" : nameP2Tbx.Text;
             //showColor1Tbl.Text = brd.Player1.Color.ToString();
             //showColor1Tbl.FocusVisualPrimaryBrush = brd.Player1.Color;
 
@@ -72,7 +72,6 @@ namespace FinalLabModule14
             //showColor2Tbl.FocusVisualPrimaryBrush = brd.Player2.Color;
 
             showName1Tbl.Text = brd.Player1.Name;
-
             showName2Tbl.Text = brd.Player2.Name;
         }
     }

@@ -48,6 +48,9 @@
                 <TextBlock Name="showColor2Tbl" FontSize="30"></TextBlock>
             </StackPanel>
         </Grid>
+        
+        
+        
         <Grid x:Name="startGrid" Visibility="Visible">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -67,11 +70,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="100"
+            
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontSize="100"
                        HorizontalAlignment="Center" VerticalAlignment="Center">4 in a Row</TextBlock>
-            <Button x:Name="startBtn" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center"
+            <Button x:Name="startBtn" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="10" FontSize="30" Tapped="Start_Tapped">Start Game</Button>
-            <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="30" Margin="10">Player 1 </TextBlock>
                 <TextBox Name="nameP1Tbx" Margin="10" PlaceholderText="Name: "></TextBox>
                 <ComboBox x:Name="colorP1Cbx" Margin="10" Grid.Row="1" Grid.Column="0" FontSize="30" 
@@ -85,7 +89,7 @@
                     <ComboBoxItem Background="Gold">Gold</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="30" Margin="10">Player 2</TextBlock>
                 <TextBox Name="nameP2Tbx" Margin="10" PlaceholderText="Name: "></TextBox>
                 <ComboBox x:Name="colorP2Cbx" Margin="10" Grid.Row="1" Grid.Column="1" FontSize="30" 
