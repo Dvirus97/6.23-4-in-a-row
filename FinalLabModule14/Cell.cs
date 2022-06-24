@@ -61,6 +61,7 @@ namespace FinalLabModule14
 
         public int Row { get; private set; }
         public int Col { get; private set; }
+        //public static int NumberOfCells { get; set; }
         public Ellipse Elps { get; private set; }
         
         private Player _player;
@@ -70,12 +71,14 @@ namespace FinalLabModule14
             set
             {
                 _player = value;
-                Elps.Fill = _player.Color;
+                Elps.Fill = (_player == null) ? 
+                    new SolidColorBrush(Colors.White) : _player.Color;
             }
         }
 
         public Cell(int row, int col)
         {
+            
             Row = row;
             Col = col;
             Elps = new Ellipse();

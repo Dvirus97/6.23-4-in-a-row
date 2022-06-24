@@ -27,16 +27,12 @@ namespace FinalLabModule14
         public MainPage()
         {
             this.InitializeComponent();
-            brd = new Board(mainGrid);
+            brd = new Board(mainGrid, startGrid);
             //int col = mainGrid.ColumnDefinitions.Count;
         }
 
         private void Start_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //colorP1Cbx_DropDownClosed(null,null) ;
-            //colorP2Cbx_DropDownClosed(null, null);
-            //brd.Player1.Name = (nameP1Tbx.Text=="") ? $"Plyer {brd.Player1.Color}" : nameP1Tbx.Text ;
-            //brd.Player2.Name = (nameP2Tbx.Text=="") ? $"Plyer {brd.Player2.Color}" : nameP2Tbx.Text ;
             startGrid.Visibility = Visibility.Collapsed;
             mainGrid.Visibility = Visibility.Visible;
             SetBoard();
@@ -64,12 +60,14 @@ namespace FinalLabModule14
             colorP2Cbx_DropDownClosed(null, null);
             brd.Player1.Name = (nameP1Tbx.Text == "") ? $"Player 1" : nameP1Tbx.Text;
             brd.Player2.Name = (nameP2Tbx.Text == "") ? $"Player 2" : nameP2Tbx.Text;
-            //showColor1Tbl.Text = brd.Player1.Color.ToString();
-            //showColor1Tbl.FocusVisualPrimaryBrush = brd.Player1.Color;
-            //showColor2Tbl.Text = brd.Player2.Color.ToString();
-            //showColor2Tbl.FocusVisualPrimaryBrush = brd.Player2.Color;
+
             showName1Tbl.Text = brd.Player1.Name;
             showName2Tbl.Text = brd.Player2.Name;
+        }
+
+        private void clearBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            brd.Clear();
         }
     }
 }

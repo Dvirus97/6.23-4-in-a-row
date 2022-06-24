@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media;
 
 namespace FinalLabModule14
 {
-    internal class Board
+    public class Board
     {
         public static Player ActivcePlayer { get; private set; }
         public Column[] Columns { get; set; }
@@ -17,30 +17,103 @@ namespace FinalLabModule14
         public Player Player2 { get; set; }
         public int Height { get; set; } = 7;
         public int Width { get; set; } = 7;
-        //private int _height = 7;
-        //private int _width = 7;
+        public Grid StartGrid { get; set; }
+        public Grid MainGrid { get; set; }
 
-        public Board(Grid grd)
+
+        public Board(Grid mainGrid, Grid startGrid)
         {
+            MainGrid = mainGrid;
+            StartGrid = startGrid;
+
             Columns = new Column[Width];
             for (int i = 0; i < Width; i++)
             {
-                Column col = new Column(i, Height, grd);
+                Column col = new Column(i, Height, mainGrid);
                 col.Btn.Tapped += Btn_Tapped;
                 Columns[i] = col;
-            
+
             }
+           
             Player1 = new Player();
             //Player1.Color = new SolidColorBrush(Colors.);
             //Player1.Name = "Red Player";
             Player2 = new Player();
             //Player2.Color = new SolidColorBrush(Colors.Blue);
             //Player2.Name = "Blue Player";
+ 
         }
+
+      
 
         private void Btn_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             SwichActivePlayer();
+            Win();
+        }
+
+        private void Win()
+        {
+            TextBlock winTbl = (TextBlock)MainGrid.FindName("winTbl");
+
+            for (int i = 0; i < Width - 3; i++)
+            {
+                for (int j = 0; j < Height - 3; j++)
+                {
+                    if (Columns[j].Cells[i].Player == Columns[j + 1].Cells[i].Player &&
+                            Columns[j + 1].Cells[i].Player == Columns[j + 2].Cells[i].Player &&
+                            Columns[j + 2].Cells[i].Player == Columns[j + 3].Cells[i].Player &&
+                            Columns[j].Cells[i].Player != null)
+                    {
+                        winTbl.Text = Columns[j].Cells[i].Player.Name + " Win";
+                        DisableGameButton();
+                    }
+
+                    if (Columns[i].Cells[j].Player == Columns[i].Cells[j + 1].Player &&
+                           Columns[i].Cells[j].Player == Columns[i].Cells[j + 2].Player &&
+                           Columns[i].Cells[j].Player == Columns[i].Cells[j + 3].Player &&
+                           Columns[i].Cells[j].Player != null)
+                    {
+                        winTbl.Text = Columns[i].Cells[i].Player.Name + " Win";
+                        DisableGameButton();
+
+                    }
+
+                    if (Columns[i].Cells[j].Player == Columns[i + 1].Cells[j + 1].Player &&
+                          Columns[i].Cells[j].Player == Columns[i + 2].Cells[j + 2].Player &&
+                          Columns[i].Cells[j].Player == Columns[i + 3].Cells[j + 3].Player &&
+                          Columns[i].Cells[j].Player != null)
+                    {
+                        winTbl.Text = Columns[i].Cells[j].Player.Name + " Win";
+                        DisableGameButton();
+
+                    }
+
+
+                    if (Columns[i].Cells[j + 3].Player == Columns[i + 1].Cells[j + 2].Player &&
+                          Columns[i].Cells[j + 3].Player == Columns[i + 2].Cells[j + 1].Player &&
+                          Columns[i].Cells[j + 3].Player == Columns[i + 3].Cells[j].Player &&
+                          Columns[i].Cells[j + 3].Player != null)
+                    {
+                        winTbl.Text = Columns[i].Cells[j + 3].Player.Name + " Win";
+                        DisableGameButton();
+
+                    }
+                }
+            }
+        }
+
+        private void DisableGameButton()
+        {
+            //for (int k = 0; k < Columns.Length; k++)
+            //{
+            //    Columns[k].DisableGameButton();
+            //    Columns[k].Btn.Tapped -= Btn_Tapped;
+            //}
+            for (int i = 0; i < Columns.Length; i++)
+            {
+                Columns[i].Btn.IsEnabled = false;
+            }
         }
 
         private void SwichActivePlayer()
@@ -57,13 +130,27 @@ namespace FinalLabModule14
 
         public void StartGame()
         {
+            //DisableGameButton();
             Clear();
             ActivcePlayer = Player1;
+            //for (int i = 0; i < Columns.Length; i++)
+            //{
+            //    Columns[i].ActivateGameButton();
+            //    Columns[i].Btn.Tapped += Btn_Tapped;
+            //}
+        
         }
 
-        private void Clear()
+        public void Clear()
         {
-
+            for (int i = 0; i < Columns.Length; i++)
+            {
+                Columns[i].Clear();
+            }
+            for (int i = 0; i < Columns.Length; i++)
+            {
+                Columns[i].Btn.IsEnabled = true;
+            }
         }
 
 

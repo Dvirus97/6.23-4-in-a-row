@@ -41,16 +41,20 @@
             <StackPanel Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15">
                 <TextBlock Name="showName1Tbl" FontSize="30"></TextBlock>
                 <TextBlock Name="showColor1Tbl" FontSize="30"></TextBlock>
-                
             </StackPanel>
-                <StackPanel Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15">
+
+            <StackPanel Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15">
                 <TextBlock Name="showName2Tbl" FontSize="30" ></TextBlock>
                 <TextBlock Name="showColor2Tbl" FontSize="30"></TextBlock>
             </StackPanel>
+
+            <Button x:Name="clearBtn"  Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" FontSize="30" Tapped="clearBtn_Tapped">Start New</Button>
+            <TextBlock Name="winTbl" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" 
+                       FontSize="30"></TextBlock>
         </Grid>
-        
-        
-        
+
+
+
         <Grid x:Name="startGrid" Visibility="Visible">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -70,13 +74,13 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <TextBlock Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontSize="100"
                        HorizontalAlignment="Center" VerticalAlignment="Center">4 in a Row</TextBlock>
             <Button x:Name="startBtn" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="10" FontSize="30" Tapped="Start_Tapped">Start Game</Button>
-            <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock FontSize="30" Margin="10">Player 1 </TextBlock>
+            <StackPanel Name="P1Spnl" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="30" Margin="10">Player 1</TextBlock>
                 <TextBox Name="nameP1Tbx" Margin="10" PlaceholderText="Name: "></TextBox>
                 <ComboBox x:Name="colorP1Cbx" Margin="10" Grid.Row="1" Grid.Column="0" FontSize="30" 
                       DropDownClosed="colorP1Cbx_DropDownClosed" Header="Color" >
@@ -89,7 +93,7 @@
                     <ComboBoxItem Background="Gold">Gold</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel x:Name="P2Spnl" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="30" Margin="10">Player 2</TextBlock>
                 <TextBox Name="nameP2Tbx" Margin="10" PlaceholderText="Name: "></TextBox>
                 <ComboBox x:Name="colorP2Cbx" Margin="10" Grid.Row="1" Grid.Column="1" FontSize="30" 
