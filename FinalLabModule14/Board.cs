@@ -49,22 +49,13 @@ namespace FinalLabModule14
 
         void CreatRect()
         {
-            Player1.RectanglePlayer = new Rectangle();
+        
             Grid.SetColumn(Player1.RectanglePlayer, 7);
             Grid.SetRow(Player1.RectanglePlayer, 1);
-            Grid.SetRowSpan(Player1.RectanglePlayer, 2);
-            Grid.SetColumnSpan(Player1.RectanglePlayer, 2);
-            Player1.RectanglePlayer.Stroke = new SolidColorBrush(Colors.Yellow);
-
-            Player2.RectanglePlayer = new Rectangle();
+        
             Grid.SetColumn(Player2.RectanglePlayer, 7);
             Grid.SetRow(Player2.RectanglePlayer, 3);
-            Grid.SetRowSpan(Player2.RectanglePlayer, 2);
-            Grid.SetColumnSpan(Player2.RectanglePlayer, 2);
-            Player2.RectanglePlayer.Stroke = new SolidColorBrush(Colors.Yellow);
             
-            Player1.RectanglePlayer.Visibility = Player2.RectanglePlayer.Visibility = Visibility.Collapsed;
-
             MainGrid.Children.Add(Player1.RectanglePlayer);
             MainGrid.Children.Add(Player2.RectanglePlayer);
         }
@@ -126,9 +117,6 @@ namespace FinalLabModule14
 
                     }
                 }
-            }
-            for (int i = 0; i < Width-3; i++)
-            {
                 for (int j = 0; j < Height - 3; j++)
                 {
                     if (Columns[i].Cells[j + 3].Player == Columns[i + 1].Cells[j + 2].Player &&
