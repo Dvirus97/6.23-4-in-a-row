@@ -43,7 +43,8 @@ namespace FinalLabModule14
             Btn.HorizontalAlignment = HorizontalAlignment.Stretch;
             Btn.VerticalAlignment = VerticalAlignment.Stretch;
             Btn.Tapped += Btn_Tapped;
-            Btn.Content = "X";
+            Btn.Content = "↓";
+            Btn.FontSize = 30;
             Grid.SetColumn(Btn, colNum);
             Grid.SetRow(Btn, 0);
             grd.Children.Add(Btn);
