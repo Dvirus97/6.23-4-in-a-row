@@ -13,24 +13,24 @@ namespace FinalLabModule14
 {
     public class Column
     {
-        public int ColNum { get; private set; }
+        public int ColID { get; private set; }
         //public static int NumberOfColumns { get; set; }
         public int Height { get; private set; }
         public Cell[] Cells { get; private set; }
         public Button Btn { get; private set; }
 
 
-        public Column(int colNum, int height, Grid grd)
+        public Column(int colID, int height, Grid grd)
         {
 
-            ColNum = colNum;
+            ColID = colID;
             Height = height;
             Cells = new Cell[Height];
 
             for (int i = 0; i < Height; i++)
             {
-                Cell cell = new Cell(i, colNum);
-                Grid.SetColumn(cell.Elps, colNum);
+                Cell cell = new Cell(i, colID);
+                Grid.SetColumn(cell.Elps, colID);
                 Grid.SetRow(cell.Elps, Height + 1 - i);
                 cell.Elps.Margin = new Thickness(5);
                 grd.Children.Add(cell.Elps);
@@ -45,7 +45,7 @@ namespace FinalLabModule14
             Btn.Tapped += Btn_Tapped;
             Btn.Content = "↓";
             Btn.FontSize = 30;
-            Grid.SetColumn(Btn, colNum);
+            Grid.SetColumn(Btn, colID);
             Grid.SetRow(Btn, 0);
             grd.Children.Add(Btn);
 
@@ -83,11 +83,11 @@ namespace FinalLabModule14
 
         private void Btn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Cell theCell = FindFreeCell();
+            Cell theFreeCell = FindFreeCell();
             Player ACT_Player = Board.ActivcePlayer;
-            if (theCell != null)
+            if (theFreeCell != null)
             {
-                theCell.Player = ACT_Player;
+                theFreeCell.Player = ACT_Player;
             }
 
 

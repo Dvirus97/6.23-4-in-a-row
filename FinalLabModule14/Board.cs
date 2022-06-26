@@ -71,6 +71,7 @@ namespace FinalLabModule14
                         Columns[i].Cells[j].Player != null)
                     {
                         DisableGameButton(Columns[i].Cells[j].Player.Name);
+                        return;
                     }
                 }
                 for (int j = 0; j < Height - 3; j++)
@@ -81,6 +82,7 @@ namespace FinalLabModule14
                         Columns[i].Cells[j].Player != null)
                     {
                         DisableGameButton(Columns[i].Cells[j].Player.Name);
+                        return;
                     }
                     if (Columns[i].Cells[j + 3].Player == Columns[i + 1].Cells[j + 2].Player &&
                        Columns[i].Cells[j + 3].Player == Columns[i + 2].Cells[j + 1].Player &&
@@ -88,6 +90,7 @@ namespace FinalLabModule14
                        Columns[i].Cells[j + 3].Player != null)
                     {
                         DisableGameButton(Columns[i].Cells[j + 3].Player.Name);
+                        return;
                     }
                 }
             }
@@ -101,6 +104,7 @@ namespace FinalLabModule14
                         Columns[i].Cells[j].Player != null)
                     {
                         DisableGameButton(Columns[i].Cells[j].Player.Name);
+                        return;
                     }
                 }
             }

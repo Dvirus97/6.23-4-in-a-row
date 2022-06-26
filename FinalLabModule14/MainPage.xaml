@@ -30,8 +30,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1.2 *"/>
+                <ColumnDefinition Width="1.2 *"/>
             </Grid.ColumnDefinitions>
 
             <!--<Rectangle Name="Player1Rct"  Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
@@ -41,11 +41,11 @@
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Transparent" 
                        Stroke="Yellow"/>-->
 
-            <StackPanel Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15">
+            <StackPanel Grid.Column="7" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15" VerticalAlignment="Center">
                 <TextBlock Name="showName1Tbl" FontSize="30" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
 
-            <StackPanel Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15">
+            <StackPanel Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15" VerticalAlignment="Center">
                 <TextBlock Name="showName2Tbl" FontSize="30" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
 
@@ -114,6 +114,7 @@
                 </ComboBox>
             </StackPanel>
             <TextBlock Grid.Row="3" Grid.Column="3" ></TextBlock>
+
         </Grid>
     </Grid>
 </Page>
