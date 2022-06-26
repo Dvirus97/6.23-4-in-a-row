@@ -1,0 +1,6 @@
+ MessageDialog dlg = new MessageDialog("Play again?", "Game Over");  // Create a MessageDialog
+ UICommand yesCommand = new UICommand("Yes", RestartGameCommand);    // Create a command for the “Yes” button
+ UICommand noCommand = new UICommand("No", CloseGameCommand);        // Create a command for the “No” button
+ dlg.Commands.Add(yesCommand);                                       // Associate the “Yes” command with the dialog
+ dlg.Commands.Add(noCommand);                                        // Associate the “No” command with the dialog
+ await dlg.ShowAsync();                                              // Show the dialog

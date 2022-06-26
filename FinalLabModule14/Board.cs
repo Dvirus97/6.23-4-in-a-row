@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
 
 namespace FinalLabModule14
 {
@@ -44,18 +38,16 @@ namespace FinalLabModule14
             //Player2.Color = new SolidColorBrush(Colors.Blue);
             //Player2.Name = "Blue Player";
             CreatRect();
-
         }
 
         void CreatRect()
         {
-        
             Grid.SetColumn(Player1.RectanglePlayer, 7);
             Grid.SetRow(Player1.RectanglePlayer, 1);
-        
+
             Grid.SetColumn(Player2.RectanglePlayer, 7);
             Grid.SetRow(Player2.RectanglePlayer, 3);
-            
+
             MainGrid.Children.Add(Player1.RectanglePlayer);
             MainGrid.Children.Add(Player2.RectanglePlayer);
         }
@@ -69,83 +61,94 @@ namespace FinalLabModule14
 
         private void Win()
         {
-            TextBlock winTbl = (TextBlock)MainGrid.FindName("winTbl");
-
-            for (int i = 0; i < Width; i++)
+            for (int i = 0; i < Width - 3; i++)
             {
+                for (int j = 0; j < Height; j++)
+                {
+                    if (Columns[i].Cells[j].Player == Columns[i + 1].Cells[j].Player &&
+                        Columns[i].Cells[j].Player == Columns[i + 2].Cells[j].Player &&
+                        Columns[i].Cells[j].Player == Columns[i + 3].Cells[j].Player &&
+                        Columns[i].Cells[j].Player != null)
+                    {
+                        DisableGameButton(Columns[i].Cells[j].Player.Name);
+                    }
+                }
                 for (int j = 0; j < Height - 3; j++)
                 {
-                    if (Columns[j].Cells[i].Player == Columns[j + 1].Cells[i].Player &&
-                            Columns[j].Cells[i].Player == Columns[j + 2].Cells[i].Player &&
-                            Columns[j].Cells[i].Player == Columns[j + 3].Cells[i].Player &&
-                            Columns[j].Cells[i].Player != null)
+                    if (Columns[i].Cells[j].Player == Columns[i + 1].Cells[j + 1].Player &&
+                        Columns[i].Cells[j].Player == Columns[i + 2].Cells[j + 2].Player &&
+                        Columns[i].Cells[j].Player == Columns[i + 3].Cells[j + 3].Player &&
+                        Columns[i].Cells[j].Player != null)
                     {
-                        winTbl.Text = Columns[j].Cells[i].Player.Name + " Win";
-                        DisableGameButton();
-                       
+                        DisableGameButton(Columns[i].Cells[j].Player.Name);
+                    }
+                    if (Columns[i].Cells[j + 3].Player == Columns[i + 1].Cells[j + 2].Player &&
+                       Columns[i].Cells[j + 3].Player == Columns[i + 2].Cells[j + 1].Player &&
+                       Columns[i].Cells[j + 3].Player == Columns[i + 3].Cells[j].Player &&
+                       Columns[i].Cells[j + 3].Player != null)
+                    {
+                        DisableGameButton(Columns[i].Cells[j + 3].Player.Name);
                     }
                 }
             }
             for (int i = 0; i < Width; i++)
             {
-                for (int j = 0; j < Height-3; j++)
+                for (int j = 0; j < Height - 3; j++)
                 {
                     if (Columns[i].Cells[j].Player == Columns[i].Cells[j + 1].Player &&
-                           Columns[i].Cells[j].Player == Columns[i].Cells[j + 2].Player &&
-                           Columns[i].Cells[j].Player == Columns[i].Cells[j + 3].Player &&
-                           Columns[i].Cells[j].Player != null)
+                        Columns[i].Cells[j].Player == Columns[i].Cells[j + 2].Player &&
+                        Columns[i].Cells[j].Player == Columns[i].Cells[j + 3].Player &&
+                        Columns[i].Cells[j].Player != null)
                     {
-                        winTbl.Text = Columns[i].Cells[j].Player.Name + " Win";
-                        DisableGameButton();
-                       
-
+                        DisableGameButton(Columns[i].Cells[j].Player.Name);
                     }
                 }
             }
-            for (int i = 0; i < Width-3; i++)
-            {
-                for (int j = 0; j < Height - 3; j++)
-                {
-                    if (Columns[i].Cells[j].Player == Columns[i + 1].Cells[j + 1].Player &&
-                          Columns[i].Cells[j].Player == Columns[i + 2].Cells[j + 2].Player &&
-                          Columns[i].Cells[j].Player == Columns[i + 3].Cells[j + 3].Player &&
-                          Columns[i].Cells[j].Player != null)
-                    {
-                        winTbl.Text = Columns[i].Cells[j].Player.Name + " Win";
-                        DisableGameButton();
-                       
-
-                    }
-                }
-                for (int j = 0; j < Height - 3; j++)
-                {
-                    if (Columns[i].Cells[j + 3].Player == Columns[i + 1].Cells[j + 2].Player &&
-                          Columns[i].Cells[j + 3].Player == Columns[i + 2].Cells[j + 1].Player &&
-                          Columns[i].Cells[j + 3].Player == Columns[i + 3].Cells[j].Player &&
-                          Columns[i].Cells[j + 3].Player != null)
-                    {
-                        winTbl.Text = Columns[i].Cells[j + 3].Player.Name + " Win";
-                        DisableGameButton();
-                       
-
-                    }
-                }
-            }
+            //for (int i = 0; i < Width - 3; i++)
+            //{
+            //    for (int j = 0; j < Height - 3; j++)
+            //    {
+            //        if (Columns[i].Cells[j].Player == Columns[i + 1].Cells[j + 1].Player &&
+            //            Columns[i].Cells[j].Player == Columns[i + 2].Cells[j + 2].Player &&
+            //            Columns[i].Cells[j].Player == Columns[i + 3].Cells[j + 3].Player &&
+            //            Columns[i].Cells[j].Player != null)
+            //        {
+            //            DisableGameButton(Columns[i].Cells[j].Player.Name);
+            //        }
+            //    }
+            //    for (int j = 0; j < Height - 3; j++)
+            //    {
+            //        if (Columns[i].Cells[j + 3].Player == Columns[i + 1].Cells[j + 2].Player &&
+            //            Columns[i].Cells[j + 3].Player == Columns[i + 2].Cells[j + 1].Player &&
+            //            Columns[i].Cells[j + 3].Player == Columns[i + 3].Cells[j].Player &&
+            //            Columns[i].Cells[j + 3].Player != null)
+            //        {
+            //            DisableGameButton(Columns[i].Cells[j + 3].Player.Name);
+            //        }
+            //    }
+            //}
         }
 
-        private void DisableGameButton()
+        private void DisableGameButton(string name)
         {
-            //for (int k = 0; k < Columns.Length; k++)
-            //{
-            //    Columns[k].DisableGameButton();
-            //    Columns[k].Btn.Tapped -= Btn_Tapped;
-            //}
             for (int i = 0; i < Columns.Length; i++)
             {
                 Columns[i].Btn.IsEnabled = false;
             }
+            PrintWinner(name);
         }
 
+        private async void PrintWinner(string text)
+        {
+            TextBlock winTbl = (TextBlock)MainGrid.FindName("winTbl");
+            winTbl.Text = text + " Wins";
+            MessageDialog message = new MessageDialog($"The Winner is - {text} \n\nDo you wont to play again?", "Game Over");
+            message.Commands.Add(new UICommand("Yes Again!!!", ClearDialog));
+            message.Commands.Add(new UICommand("No, Go Back", returnDialog));
+            await message.ShowAsync();
+        }
+
+    
         void BoardFull()
         {
             TextBlock winTbl = (TextBlock)MainGrid.FindName("winTbl");
@@ -159,7 +162,7 @@ namespace FinalLabModule14
             }
             if (count == Width)
             {
-                winTbl.Text = "Tie. no win";
+                PrintWinner("No one. Its a tie!");
             }
         }
 
@@ -172,24 +175,21 @@ namespace FinalLabModule14
             else
             {
                 ActivcePlayer = (ActivcePlayer == Player1) ? Player2 : Player1;
-                Player1.RectanglePlayer.Visibility = Player2.RectanglePlayer.Visibility = Visibility.Collapsed;
-                ActivcePlayer.RectanglePlayer.Visibility = Visibility.Visible;
+                MoveRect();
             }
         }
 
         public void StartGame()
         {
-            //DisableGameButton();
             Clear();
             ActivcePlayer = Player1;
+            MoveRect();
+        }
+
+        void MoveRect()
+        {
             Player1.RectanglePlayer.Visibility = Player2.RectanglePlayer.Visibility = Visibility.Collapsed;
             ActivcePlayer.RectanglePlayer.Visibility = Visibility.Visible;
-            //for (int i = 0; i < Columns.Length; i++)
-            //{
-            //    Columns[i].ActivateGameButton();
-            //    Columns[i].Btn.Tapped += Btn_Tapped;
-            //}
-
         }
 
         public void Clear()
@@ -206,7 +206,23 @@ namespace FinalLabModule14
             winTbl.Text = "";
         }
 
-
-
+        public void ClearDialog(IUICommand cmd)
+        {
+            for (int i = 0; i < Columns.Length; i++)
+            {
+                Columns[i].Clear();
+            }
+            for (int i = 0; i < Columns.Length; i++)
+            {
+                Columns[i].Btn.IsEnabled = true;
+            }
+            TextBlock winTbl = (TextBlock)MainGrid.FindName("winTbl");
+            winTbl.Text = "";
+        }
+        void returnDialog(IUICommand cmd)
+        {
+            StartGrid.Visibility = Visibility.Visible;
+            MainGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }

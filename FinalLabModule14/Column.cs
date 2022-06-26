@@ -79,6 +79,7 @@ namespace FinalLabModule14
             Btn.IsEnabled = false;
             return true;
         }
+
         private void Btn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Cell theCell = FindFreeCell();
