@@ -223,8 +223,9 @@ namespace FinalLabModule14
             TextBlock winTbl = (TextBlock)MainGrid.FindName("winTbl");
             winTbl.Text = "";
         }
-        void returnDialog(IUICommand cmd)
+        public void returnDialog(IUICommand cmd)
         {
+
             StartGrid.Visibility = Visibility.Visible;
             MainGrid.Visibility = Visibility.Collapsed;
         }

@@ -72,8 +72,9 @@ namespace FinalLabModule14
 
         private void returnBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            startGrid.Visibility = Visibility.Visible;
-            mainGrid.Visibility = Visibility.Collapsed;
+            brd.returnDialog(null);
+            //startGrid.Visibility = Visibility.Visible;
+            //mainGrid.Visibility = Visibility.Collapsed;
         }
     }
 }
